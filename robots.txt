@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://iwayekjh.github.io/homem-hth-com-cn-2/sitemap.xml

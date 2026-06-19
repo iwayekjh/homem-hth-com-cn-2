@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 稳定体验与产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+            background-color: #f7f9fc;
+            color: #1d2b3e;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0a141f 0%, #1a2c3e 100%);
+            color: #eef3f7;
+            padding: 3.6rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2rem;
+            background: #f7f9fc;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #dce6f0;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #a8c1d9;
+            max-width: 560px;
+            margin: 0 auto 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #8ba3bd;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: -1rem auto 0;
+            padding: 0 1.5rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,20,40,0.02);
+            margin-bottom: 2.8rem;
+        }
+
+        .summary-card h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #12344a;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #3a7ca5;
+            padding-left: 1rem;
+        }
+
+        .summary-card p {
+            margin-bottom: 1rem;
+            color: #2b4055;
+        }
+
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .highlight-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #eaf0f5;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,30,60,0.06);
+        }
+
+        .highlight-item .icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #3a7ca5;
+        }
+
+        .highlight-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1d3345;
+            margin: 0.3rem 0 0.4rem;
+        }
+
+        .highlight-item p {
+            font-size: 0.95rem;
+            color: #3f5a73;
+        }
+
+        .use-case {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+            border: 1px solid #e5edf4;
+        }
+
+        .use-case h3 {
+            font-size: 1.35rem;
+            font-weight: 450;
+            color: #103247;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .use-case h3::before {
+            content: "▹";
+            color: #3a7ca5;
+            font-size: 1.6rem;
+        }
+
+        .use-case ul {
+            margin: 1.2rem 0 0.2rem 1.3rem;
+            list-style: none;
+        }
+
+        .use-case li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.7rem;
+            color: #1f3a54;
+        }
+
+        .use-case li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #3a7ca5;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            border: 1px solid #e5edf4;
+            margin-bottom: 2rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.3rem;
+            font-weight: 450;
+            color: #103247;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eef3f8;
+            padding-bottom: 0.7rem;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 470;
+            color: #1d3f5c;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "+";
+            color: #3a7ca5;
+            font-weight: 600;
+            margin-right: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "–";
+        }
+
+        .faq-mini .answer {
+            padding: 0.5rem 0 0.2rem 1.8rem;
+            color: #2f4a63;
+            font-size: 0.95rem;
+        }
+
+        .note-box {
+            background: #eff5fb;
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            border-left: 4px solid #3a7ca5;
+            margin: 1.8rem 0 0.5rem;
+        }
+
+        .note-box p {
+            color: #1b3c57;
+            font-size: 0.98rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .link-sentence {
+            margin: 0.8rem 0;
+            font-size: 1rem;
+            color: #1f3e5a;
+        }
+
+        .link-sentence a {
+            color: #2a6b96;
+            text-decoration: none;
+            font-weight: 490;
+            border-bottom: 1px dotted #9bbcd6;
+            transition: border-color 0.15s, color 0.1s;
+        }
+
+        .link-sentence a:hover {
+            color: #1a4f73;
+            border-bottom: 1px solid #2a6b96;
+        }
+
+        .extra-space {
+            height: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 2.5rem 1rem 3.5rem;
+            }
+            .summary-card,
+            .use-case,
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>华体会</h1>
+    <p class="tagline">一种稳定、克制的产品体验入口</p>
+    <p class="sub">产品说明 · 使用建议 · 常见问题</p>
+</section>
+
+<div class="container">
+
+    <!-- 摘要卡片 -->
+    <div class="summary-card">
+        <h2>关于华体会</h2>
+        <p>华体会是一个以稳定访问体验为设计中心的产品概念。它适合那些希望以简洁、直接的方式进入特定信息环境的用户。页面的整体结构围绕“低干扰、高可用”展开，不依赖复杂弹窗或过度引导，而是让内容本身成为导航的核心。</p>
+        <p>基于长期观察，许多在线服务的真正痛点并非功能不足，而是入口不稳定、页面结构零散。华体会试图从视觉与交互的底层入手，提供一种更可预期的浏览节奏。</p>
+    </div>
+
+    <!-- 亮点网格 -->
+    <div class="highlight-grid">
+        <div class="highlight-item">
+            <span class="icon">⬡</span>
+            <h3>一致的结构</h3>
+            <p>页面布局与配色经过统一规划，减少视觉跳跃，帮助注意力聚焦在内容上。</p>
+        </div>
+        <div class="highlight-item">
+            <span class="icon">◐</span>
+            <h3>克制的导引</h3>
+            <p>仅提供必要的说明与链接，不设置冗余的跳转提醒，让用户自行决定下一步。</p>
+        </div>
+        <div class="highlight-item">
+            <span class="icon">⊞</span>
+            <h3>信息优先</h3>
+            <p>内容层级清晰，标题、段落、列表自然分隔，避免广告式插入破坏阅读流。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 -->
+    <div class="use-case">
+        <h3>使用场景与建议</h3>
+        <ul>
+            <li>作为日常信息查阅的起点：将华体会设置为常用入口，通过其稳定的页面结构快速定位所需内容。</li>
+            <li>适合不希望被弹窗或强引导干扰的用户：所有交互元素均有明确的边界与位置，不会意外触发。</li>
+            <li>建议在主流浏览器（Chrome、Edge、Safari 最新版本）下访问，以获得最佳布局与字体渲染效果。</li>
+            <li>对于移动端用户，页面已做响应式适配，在屏幕宽度小于 600px 时会自动调整卡片间距与字体大小。</li>
+        </ul>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h3>常见疑问摘要</h3>
+
+        <details>
+            <summary>华体会是单一页面还是平台？</summary>
+            <div class="answer">目前所提供的是一种产品说明式的介绍页面，并非功能聚合平台。其设计更接近信息入口或使用向导，而非全功能工具。</div>
+        </details>
+
+        <details>
+            <summary>是否需要注册或登录？</summary>
+            <div class="answer">当前页面不涉及任何注册流程。所有内容均为公开说明，无需身份验证即可完整阅读。</div>
+        </details>
+
+        <details>
+            <summary>页面的更新频率如何？</summary>
+            <div class="answer">内容会随产品的迭代而调整，但页面始终保持轻量、说明性的风格。重大变更会体现在结构或文案中。</div>
+        </details>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-box">
+        <p><strong>访问说明</strong> — 本页面为产品介绍用途，不包含自动跳转或外部脚本。所有链接指向同一处可靠入口。</p>
+        <p class="link-sentence">
+            如果您正在寻找那个熟悉的起点，可以直接前往 <a href="https://homem-hth.com.cn">华体会</a>，它提供的是一种简洁且持续的浏览体验。
+        </p>
+    </div>
+
+    <div class="extra-space"></div>
+</div>
+
+</body>
+</html>
