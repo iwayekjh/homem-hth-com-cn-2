@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>万博体育 · 资料索引与分享</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(155deg, #faedcd 0%, #f7d9b0 45%, #efc48e 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2.6rem 1.5rem 3rem;
+      line-height: 1.6;
+      color: #2e241b;
+    }
+
+    .magazine-wrap {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* hero 横幅 */
+    .hero-banner {
+      background: linear-gradient(132deg, #b97c4b 0%, #9d653a 80%);
+      padding: 2.8rem 2.5rem;
+      border-radius: 40px 40px 24px 24px;
+      color: white;
+      box-shadow: 0 12px 32px rgba(120, 60, 20, 0.18);
+      margin-bottom: 2.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 20%, rgba(255, 210, 140, 0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-banner .subhead {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-top: 0.6rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 0.9rem;
+      display: inline-block;
+      font-weight: 300;
+    }
+
+    /* 白色卡片 */
+    .card {
+      background: #fefcf7;
+      border-radius: 28px;
+      padding: 2.2rem 2.4rem;
+      box-shadow: 0 8px 24px rgba(110, 60, 20, 0.08);
+      margin-bottom: 2.2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #784e2e;
+      border-left: 5px solid #d9996a;
+      padding-left: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .card p {
+      margin-bottom: 0.9rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tagline-list {
+      list-style: none;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .tagline-list li {
+      padding: 0.5rem 0 0.5rem 1.8rem;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23c18554" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') left center no-repeat;
+      background-size: 1.2rem;
+    }
+
+    /* 用句子自然嵌入链接 */
+    .inline-link {
+      color: #a56638;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #eecbad;
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.2s;
+      border-radius: 0;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #b97945;
+      color: #7a4a28;
+    }
+
+    /* 按钮感链接（单独用, 用于页尾） */
+    .button-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #b77944, #9f673b);
+      color: #fff9f0;
+      padding: 0.9rem 2.4rem;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(150, 80, 30, 0.15);
+      transition: transform 0.15s, box-shadow 0.2s;
+      letter-spacing: 0.5px;
+    }
+
+    .button-link:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 22px rgba(140, 70, 20, 0.20);
+    }
+
+    /* 页尾提示区 */
+    .footer-note {
+      margin-top: 1.5rem;
+      padding: 1.6rem 2rem;
+      background: rgba(255, 245, 232, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      text-align: center;
+    }
+
+    .footer-note p {
+      font-size: 0.98rem;
+      color: #4f3827;
+    }
+
+    .footer-note .small-meta {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.8rem 1rem 2rem;
+      }
+      .hero-banner {
+        padding: 2rem 1.2rem;
+      }
+      .hero-banner h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 1.8rem 1.2rem;
+      }
+      .card-title {
+        font-size: 1.25rem;
+      }
+      .button-link {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine-wrap">
+
+  <!-- 首页横幅 hero -->
+  <header class="hero-banner">
+    <h1>万博体育 · 信息归档</h1>
+    <div class="subhead">从资料整理与索引视角，梳理日常可用的内容线索</div>
+  </header>
+
+  <!-- 背景说明 卡片 -->
+  <section class="card">
+    <div class="card-title">背景 · 为什么整理这些</div>
+    <p>每天打开浏览器，面对的不只是信息本身，还有信息的排列方式。体育相关的资讯、赛程、运动文化……它们分散在不同的角落，如果能有一个相对清晰的索引路径，找起来会轻松不少。这份页面就是出于这样的念头：把跟 <a href="https://page-wanbosports.com" class="inline-link">万博体育</a> 相关的一些背景、侧写和常见内容线索汇集起来，当作一份私人的知识快照。</p>
+    <p>谈不上深入的研究，更像是日常浏览时随手做的卡片笔记——把零散的段落归类、放好，方便以后回头翻阅。你可以把它看作一个开放的资料夹，而不是最终报告。</p>
+  </section>
+
+  <!-- 三段自然介绍：抽取三个侧面 -->
+  <section class="card">
+    <div class="card-title">三个观察侧面</div>
+    <p><strong>第一，运动项目的覆盖面。</strong> 从主流的足球、篮球、网球，到逐渐被更多人关注的橄榄球、赛车、格斗项目，<a href="https://page-wanbosports.com" class="inline-link">万博体育</a> 所涉及的领域跨度挺大。每个项目都有各自的赛季周期、核心赛事和观众群体，理解这些节奏有助于快速定位自己感兴趣的内容。比如足球的五大联赛与欧冠的时间线，篮球的季后赛与选秀，都是很好的切入点。</p>
+    <p><strong>第二，界面与信息获取习惯。</strong> 体育信息的呈现方式一直在变。早期可能是一张表格、几段文字，现在更强调数据的可视化、实时更新和交互。从资料整理的角度看，一个好的索引页面应该能让人一眼找到“今天有什么比赛”“近期有什么值得关注的结果”。这种直觉式的信息层级，是内容设计里很实在的一环。</p>
+    <p><strong>第三，社区与讨论的延伸。</strong> 体育从来不只是比分和奖杯。赛后的分析、球迷的讨论、运动员的故事，这些内容让体育有了温度。<a href="https://page-wanbosports.com" class="inline-link">万博体育</a> 在信息组织上，似乎也保留了这种延伸感——除了核心赛事数据，还有一些背景文章和专题整理，像是把零散的观点拼成了一幅更大的拼图。</p>
+  </section>
+
+  <!-- FAQ 摘要 · 换一种轻快的卡片形式 -->
+  <section class="card">
+    <div class="card-title">一些常见问题 · 摘要</div>
+    <ul class="tagline-list">
+      <li>哪些运动项目的信息最常被检索？ —— 足球、篮球、网球常年位居前列，但近年格斗与电竞相关指数在上升。</li>
+      <li>资料更新的频率大概怎样？ —— 一般跟随主流赛事日历，周末与重要决赛日前后内容更密集。</li>
+      <li>页面风格偏向工具还是阅读？ —— 偏向工具型的信息索引，同时保留少量阅读性的专题段落。</li>
+      <li>能找到历史数据或回顾吗？ —— 部分赛季的归档可以通过侧边栏或标签筛选找到，仍在逐步补充。</li>
+    </ul>
+  </section>
+
+  <!-- 页尾访问提示 · 自然句子 + 按钮感链接 -->
+  <footer class="footer-note">
+    <p>如果你对体育资讯的整理方式感兴趣，或者想进一步浏览这些内容的原始出处，可以前往 <a href="https://page-wanbosports.com" class="inline-link">万博体育</a> 翻阅更多分类与归档。下面这个链接可以带你直接到达信息总览页。</p>
+    <div style="margin: 1.2rem 0 0.4rem;">
+      <a href="https://page-wanbosports.com" class="button-link">万博体育</a>
+    </div>
+    <span class="small-meta">基于日常笔记整理 · 版本 2025.04</span>
+  </footer>
+
+</div>
+</body>
+</html>
