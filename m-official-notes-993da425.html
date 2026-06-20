@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>jiuyou · 产品说明页</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f8f7;
+            color: #1e2a2b;
+            line-height: 1.65;
+            padding: 24px 16px 60px;
+        }
+
+        .wrap {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* header / hero */
+        .hero {
+            background: linear-gradient(135deg, #d7f0eb 0%, #e6f7f3 100%);
+            border-radius: 32px;
+            padding: 40px 28px 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 12px rgba(0, 80, 70, 0.06);
+            border: 1px solid rgba(60, 150, 130, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #116b5c;
+            margin-bottom: 10px;
+        }
+
+        .hero .tagline {
+            font-size: 1.05rem;
+            color: #2f5950;
+            max-width: 500px;
+        }
+
+        .hero .tagline a {
+            color: #0a7e6b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .hero .tagline a:hover {
+            color: #065a4b;
+        }
+
+        /* 网格卡片 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px 22px;
+            box-shadow: 0 2px 10px rgba(10, 80, 70, 0.04);
+            border: 1px solid #d6eae5;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(20, 100, 85, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 520;
+            color: #1a6d5f;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3 i {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #3fa692;
+            border-radius: 10px;
+            margin-right: 6px;
+        }
+
+        .card p {
+            font-size: 0.96rem;
+            color: #2d4742;
+            margin-bottom: 6px;
+        }
+
+        .card .small-meta {
+            font-size: 0.85rem;
+            color: #5b7a74;
+            margin-top: 8px;
+            border-top: 1px dashed #cde3de;
+            padding-top: 10px;
+        }
+
+        /* 场景 + 提示区域 */
+        .scene-block {
+            background: #e5f3ef;
+            border-radius: 28px;
+            padding: 28px 22px;
+            margin-bottom: 28px;
+        }
+
+        .scene-block h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #115f51;
+            margin-bottom: 14px;
+            letter-spacing: -0.3px;
+        }
+
+        .scene-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .scene-tag {
+            background: white;
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            color: #1e5e52;
+            border: 1px solid #bbdbd2;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .scene-tag strong {
+            font-weight: 540;
+            color: #0a6f5d;
+        }
+
+        .faq-mini {
+            background: white;
+            border-radius: 24px;
+            padding: 22px 22px 16px;
+            margin-top: 18px;
+            border: 1px solid #c9e3db;
+        }
+
+        .faq-mini details {
+            margin-bottom: 10px;
+            font-size: 0.94rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #165f52;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #3a9b87;
+        }
+
+        .faq-mini p {
+            margin: 6px 0 2px 12px;
+            color: #2d4d44;
+        }
+
+        /* 链接 / 备注 */
+        .visit-note {
+            background: #f0f9f5;
+            border-radius: 24px;
+            padding: 20px 22px;
+            border: 1px solid #b8d9d0;
+            font-size: 0.94rem;
+            color: #1d4f45;
+        }
+
+        .visit-note a {
+            color: #0d7b65;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .visit-note a:hover {
+            color: #045542;
+        }
+
+        .footnote {
+            margin-top: 28px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #668b82;
+            border-top: 1px solid #cee3dd;
+            padding-top: 20px;
+        }
+
+        /* 响应式 */
+        @media (min-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 640px) {
+            body {
+                padding: 32px 32px 60px;
+            }
+            .hero {
+                padding: 48px 36px 38px;
+            }
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 18px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- hero 区，自然嵌入 jiuyou 链接 -->
+    <div class="hero">
+        <h1>jiuyou · 再次留意</h1>
+        <div class="tagline">
+            有些页面值得不止一次打开。<br>
+            如果你已经来过，或者只是恰好遇见，欢迎再看看 <a href="https://m-official-jiuyou.com">jiuyou</a> 最近的样子。
+        </div>
+    </div>
+
+    <!-- 卡片网格：产品摘要 + 亮点 -->
+    <div class="grid">
+        <div class="card">
+            <h3><i></i> 它解决什么</h3>
+            <p>jiuyou 是一个轻量但结构清晰的信息入口，围绕特定内容提供持续可访问的页面。没有冗余加载，也没有复杂的注册门槛——打开即用，关闭即走。</p>
+            <div class="small-meta">页面结构偏重内容可读性，适合常回看。</div>
+        </div>
+        <div class="card">
+            <h3><i></i> 值得留意的点</h3>
+            <p>版式干净，视觉重心明确。在移动设备上阅读舒适，卡片与间距经过微调，不会出现拥挤或过大的留白。不收集多余数据，也不弹出突兀的引导。</p>
+            <div class="small-meta">多数操作只需一次点击或滑动。</div>
+        </div>
+    </div>
+
+    <!-- 使用建议 / 场景 区块 -->
+    <div class="scene-block">
+        <h2>常见使用场景</h2>
+        <div class="scene-items">
+            <span class="scene-tag"><strong>再次访问</strong> 收藏后隔几天回看</span>
+            <span class="scene-tag"><strong>简单查阅</strong> 快速获取页面要点</span>
+            <span class="scene-tag"><strong>分享参考</strong> 发给需要的人</span>
+            <span class="scene-tag"><strong>关注更新</strong> 页面内容会逐渐丰富</span>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>页面会频繁变化吗？</summary>
+                <p>内容会视情况进行补充或调整，但不会以天为单位大幅改动。你可以隔一段时间再来看看，通常会有新的细节，但整体风格保持一致。</p>
+            </details>
+            <details>
+                <summary>是否需要登录或注册？</summary>
+                <p>目前不需要。jiuyou 页面完全公开，直接通过链接访问即可。未来如增加个性化功能会另行说明。</p>
+            </details>
+            <details>
+                <summary>在手机上显示正常吗？</summary>
+                <p>完全适配。页面采用响应式设计，卡片和文字在手机、平板、桌面上的阅读体验都经过基础验证。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="visit-note">
+        <p><strong>关于访问与收藏</strong></p>
+        <p>如果你觉得这个页面以后还用得上，可以考虑把它加入书签，或者记下链接 <a href="https://m-official-jiuyou.com">jiuyou</a>。不需要反复搜索，也不用担心链接失效。页面不包含自动跳转、弹窗或任何追踪代码，你可以放心打开。</p>
+        <p style="margin-top: 10px;">另外，jiuyou 目前没有独立的移动应用，也不需要通过第三方工具访问。只需浏览器输入地址即可。未来如果上线新入口，会在页面内用同样克制的方式告知。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footnote">
+        jiuyou · 保持简单 · 可回访
+    </div>
+
+</div>
+</body>
+</html>
